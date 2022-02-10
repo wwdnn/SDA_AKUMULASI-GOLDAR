@@ -98,6 +98,13 @@ void urutkanData(){
 				dt1[i] = dt1[j];
 				dt1[j] = dt2;
 			}
+			if(strcmp(dt1[i].Gol_darah, dt1[j].Gol_darah)==0){
+				if(dt1[i].jk > dt1[j].jk){
+					dt2 = dt1[i];
+					dt1[i] = dt1[j];
+					dt1[j] = dt2; 
+				}
+			}
 		}
 	}
 	
