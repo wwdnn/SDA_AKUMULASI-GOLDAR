@@ -7,6 +7,7 @@
 #include "Data.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void inputData(){
 	Data_a *dt;
@@ -29,8 +30,9 @@ void inputData(){
 		
 		fflush(stdin);
 		printf("\nKELAS         : ");
-		gets(dt[i].kelas);	
-	
+		gets(dt[i].kelas);
+		strupr(dt[i].kelas); 
+		
 		fflush(stdin);
 		printf("NIM           : ");
 		gets(dt[i].NIM); 
@@ -38,10 +40,12 @@ void inputData(){
 		fflush(stdin);
 		printf("GOL DARAH     : ");
 		gets(dt[i].Gol_darah);
+		strupr(dt[i].Gol_darah); 
 		
 		fflush(stdin);
 		printf("JENIS KELAMIN : ");
 		scanf("%c", &dt[i].jk); 
+		dt[i].jk = toupper((dt[i].jk));  
 
 		fwrite(&dt[i], sizeof(Data_a), 1, fp); 
 	}
@@ -96,6 +100,7 @@ void urutkanData(){
 			}
 		}
 	}
+	
 	
 	fp = fopen("File_a.txt", "w");
 	
